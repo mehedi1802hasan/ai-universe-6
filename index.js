@@ -6,7 +6,15 @@ const allCard = ()=>{
 }
  const displayCard =data=>{
  const mainContainer=document.getElementById('main-container');
- data.tools?.forEach(tooll=>{
+const showData=document.getElementById('showbtn');
+if(data.length>6){
+  data= data.slice(0, 6);
+  showData.classList.remove('hidden')
+}
+else {
+  showData.classList.add('hidden')
+} 
+data.tools?.forEach(tooll=>{
     //console.log(tooll)
     const cardDiv=document.createElement('div');
     cardDiv.classList.add('col');
@@ -40,10 +48,34 @@ const showSingelDetails=id=>{
 let url=` https://openapi.programming-hero.com/api/ai/tool/${id}`
 fetch(url)
 .then(res =>res.json())
-.then(data =>showAllData(data.data.id))
+.then(data =>showAllData(data.data))
 }
 const showAllData =idDetails =>{
-cosnt
+console.log(idDetails)
+const exampleModal=document.getElementById('exampleModal');
+const modalDiv =document.getElementById('exampleModalLabel')
+modalDiv.innerHTML=`
+<div class='d-flex' g-3>
+<div class="card style="width: 10rem;">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">${idDetails}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card style="width: 10rem;">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+`
+
+
 }
 
 allCard()
