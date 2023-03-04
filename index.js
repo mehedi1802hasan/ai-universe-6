@@ -1,8 +1,7 @@
-const allCard = (dataLimit)=>{
-  //const url =``;
-  fetch('https://openapi.programming-hero.com/api/ai/tools')
-  .then(res=>res.json())
-  .then(data =>displayCard (data.data.tools,dataLimit))
+const allCard =async(dataLimit)=>{
+  const res =await fetch (`https://openapi.programming-hero.com/api/ai/tools` );
+  const data = await res.json();
+  displayCard (data.data.tools,dataLimit)
 }
 const displayCard =(data,dataLimit)=>{
 const mainContainer=document.getElementById('main-container');
