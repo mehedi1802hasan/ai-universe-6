@@ -64,18 +64,18 @@ const exampleModal=document.getElementById('exampleModal');
 const modalDiv =document.getElementById('exampleModalLabel')
 modalDiv.innerHTML=`
 
-<div class="row p-2 g-5">
-<div class="card col-sm-6  bg-warning">
+<div class="row p-4">
+<div class="card col-sm-6 bg-warning">
 <p class='p-3'>${idDetails.description}</p>
 
-<div class='card-group gap-2 d-flex'>
+<div class='card-group gap-2 row'>
 <div class="card p-1 text-info">${idDetails.pricing[0] ? idDetails.pricing[0].price : 'No-pricing'}<br><span>${idDetails.pricing[0].plan}<span>  </div>
 <div class="card p-1 text-warning">${idDetails.pricing[1] ? idDetails.pricing[1].price : 'no price' }<br><span>${idDetails.pricing[1].plan}<span> </div>
 <div class="card p-1 text-danger">${idDetails.pricing[2] ? idDetails.pricing[1].price: 'no price'  }<br><span>${idDetails.pricing[2].plan}<span> </div>
 </div>
 <br>
-<div class="d-flex">
-<div>
+<div class="row ">
+<div class ="col col-md-6">
 <h4>Fetures</h4>
 <ul>
 <li>${idDetails.features[1].feature_name}</li>
@@ -83,7 +83,7 @@ modalDiv.innerHTML=`
 <li>${idDetails.features[3].feature_name}</li>
 </ul>
 </div>
-<div>
+<div class ="col col-md-6">
 <p>Integration</p>
 <ul>
 <li>${idDetails.integrations? idDetails.integrations[0] :'no-data'}</li>
@@ -99,7 +99,7 @@ modalDiv.innerHTML=`
 <div class="card col-sm-6" style="width:20rem">
 <img class="card-img-top p-1" src="${idDetails.image_link[0]}">
 <div class="align-top" >
-<button class="btn btn-primary p-1" style="margin-top:-100px;margin-left:20px">${ idDetails?.accuracy? idDetails.accuracy.score : 'no'} accuracy</button></div><br>
+<button class="btn btn-primary  p-1" style="margin-top:-280px;margin-left:180px">${ idDetails.accuracy? idDetails.accuracy.score : 'no'} accuracy</button></div><br>
 <h3>${idDetails.input_output_examples[0]? idDetails.input_output_examples[0].input : 'Can you give any example'}</h3> 
 <h6>${idDetails.input_output_examples[0]?  idDetails.input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</h6>
 </div>
@@ -112,5 +112,19 @@ modalDiv.innerHTML=`
 document.getElementById('showbtn').addEventListener('click',function(){
 allCard();
 })
+
+const toggleloadingSpin = isLoading =>{
+const loadingSpin = document.getElementById('loadingSpin');
+if (isLoading) {
+  loadingSpin.classList.remove('d-none')
+  
+}
+else{
+    loadingSpin.classList.add('d-none')
+
+}
+
+
+}
 allCard(6);
 

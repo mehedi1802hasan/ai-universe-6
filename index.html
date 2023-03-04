@@ -11,7 +11,7 @@
 <body>
     <h1 class="d-flex justify-content-center align-item-center my-3">AI Universe Hub</h1>
   <div class="d-flex justify-content-center align-item-center my-3">
-    <button>Sort By Date</button>
+    <button class="btn btn-primary">Sort By Date</button>
           </div>  
       
      <main>
@@ -25,8 +25,15 @@
 
             <section>
               <div id="showbtn" class="text-center m-4 d-none">
-                <button  class="btn btn-primary px-5 py-3">Show All</button>
+                <button  class="btn btn-primary px-5 py-3 ">See More</button>
               </div>
+            </section>
+            <section id="loadingSpin" class="d-none" style="height: 400px;">
+              <div class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
             </section>
      </main>     
 
@@ -38,7 +45,7 @@
 
 <!-- Modal -->
 <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
- 
+
   <div>
     <div class="modal-dialog">
       <div class="modal-content">
@@ -46,17 +53,14 @@
           <h1 class="modal-title fs-5 " id="exampleModalLabel">Modal title</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        
-      
       </div>
     </div>
   </div>
- 
   <div>
     
   </div>
 </div>
-          </header>
+ </header>
 
 
     <!--js link-->
