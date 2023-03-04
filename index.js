@@ -2,20 +2,24 @@ const allCard = ()=>{
     //const url =``;
     fetch('https://openapi.programming-hero.com/api/ai/tools')
     .then(res=>res.json())
-    .then(data =>displayCard (data.data))
+    .then(data =>displayCard (data.data.tools))
 }
  const displayCard =data=>{
  const mainContainer=document.getElementById('main-container');
 const showData=document.getElementById('showbtn');
 if(data.length>6){
-  data= data.slice(0, 6);
-  showData.classList.remove('hidden')
+ data= data.slice(0, 6);
+ showData.classList.remove('none')
 }
 else {
-  showData.classList.add('hidden')
+  showData.classList.add('none')
 } 
-data.tools?.forEach(tooll=>{
+
+console.log(data)
+data.forEach(tooll=>{
     //console.log(tooll)
+
+
     const cardDiv=document.createElement('div');
     cardDiv.classList.add('col');
     cardDiv.innerHTML=`
@@ -59,7 +63,7 @@ const exampleModal=document.getElementById('exampleModal');
 const modalDiv =document.getElementById('exampleModalLabel')
 modalDiv.innerHTML=`
 
-<div class="row p-2">
+<div class="row p-2 g-5">
 <div class="card col-sm-6  bg-warning">
 <p class='p-3'>${idDetails.description}</p>
 
@@ -92,11 +96,11 @@ modalDiv.innerHTML=`
  
 
 <div class="card col-sm-6" style="width:20rem">
-  <img class="card-img-top" src="${idDetails.image_link[0]}">
+  <img class="card-img-top p-1" src="${idDetails.image_link[0]}">
   <div class="align-top" >
-  <button class="btn btn-primary p-1" style="margin-top:-100px;">${ idDetails?.accuracy? idDetails.accuracy.score : 'no'} accuracy</button></div><br>
+  <button class="btn btn-primary p-1" style="margin-top:-100px;margin-left:20px">${ idDetails?.accuracy? idDetails.accuracy.score : 'no'} accuracy</button></div><br>
   <h3>${idDetails.input_output_examples[0]? idDetails.input_output_examples[0].input : 'Can you give any example'}</h3> 
-  <h6>${idDetails.input_output_examples[0]?  idDetails.input_output_examples[0].output: 'No! Not Yet! Take a break!!!'}</h6>
+  <h6>${idDetails.input_output_examples[0]?  idDetails.input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</h6>
 </div>
 </div>
 
