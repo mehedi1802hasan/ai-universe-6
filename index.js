@@ -99,7 +99,7 @@ modalDiv.innerHTML=`
 <div class="card col-sm-6" style="width:20rem">
 <img class="card-img-top p-1" src="${idDetails.image_link[0]}">
 <div class="align-top" >
-<button class="btn btn-primary  p-1" style="margin-top:-280px;margin-left:180px">${ idDetails.accuracy? idDetails.accuracy.score : 'no'} accuracy</button></div><br>
+<button class="btn btn-primary  p-1" style="margin-top:-280px;margin-left:180px">${ idDetails.accuracy? idDetails.accuracy.score : 'no-data'} accuracy</button></div><br>
 <h3>${idDetails.input_output_examples[0]? idDetails.input_output_examples[0].input : 'Can you give any example'}</h3> 
 <h6>${idDetails.input_output_examples[0]?  idDetails.input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</h6>
 </div>
